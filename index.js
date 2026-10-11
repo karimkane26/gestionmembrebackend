@@ -3,6 +3,7 @@ dotenv.config();
 import Memberoutes from './routes/membreroutes.js'
 import authRoutes from './routes/AuthRoutes.js'
 import ConnectDb from "./db/config.js";
+import CotisationRoutes from './routes/cotisationRoutes.js'
 import express from 'express'
 import cors from 'cors'
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use('/api/membres', Memberoutes)
 app.use('/api/auth',authRoutes)
+app.use('/api/cotisations', CotisationRoutes)
 
 app.listen(process.env.PORT,() => {
     ConnectDb()
